@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tortas Jeni – Sasaima, Cundinamarca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-pale: #f5e6b8;
+      --black: #0a0a0a;
+      --dark: #111111;
+      --dark2: #1a1a1a;
+      --white: #faf8f3;
+      --text: #d4c5a0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-ornament {
+      font-size: 2.5rem;
+      color: var(--gold);
+      opacity: 0.6;
+      margin-bottom: 1rem;
+      animation: fadeDown 1s ease both;
+    }
+    .hero-subtitle {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      animation: fadeDown 1s 0.2s ease both;
+    }
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, #a07830 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+    .hero-divider {
+      width: 120px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 2rem auto;
+      animation: fadeUp 1s 0.5s ease both;
+    }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-style: italic;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      animation: fadeUp 1s 0.6s ease both;
+    }
+    .hero-location {
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.5);
+      animation: fadeUp 1s 0.7s ease both;
+    }
+    .hero-cta {
+      margin-top: 3rem;
+      display: flex; gap: 1.2rem; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 1s 0.9s ease both;
+    }
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg, var(--gold), #a07830);
+      color: var(--black);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.35);
+    }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 1rem 2.5rem;
+      border: 1px solid rgba(201,168,76,0.5);
+      color: var(--gold);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    }
+    .btn-outline:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: var(--gold);
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+    .section-line {
+      width: 80px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1.5rem auto 0;
+    }
+
+    /* ── GALLERY ── */
+    #galeria {
+      padding: 8rem 4rem;
+      background: var(--dark);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: brightness(0.9);
+    }
+    .gallery-item:hover img { transform: scale(1.06); filter: brightness(1); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      display: flex; align-items: flex-end;
+      padding: 1.5rem;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      letter-spacing: 0.05em;
+    }
+    .gallery-item::after {
+      content: '';
+      position: absolute; inset: 0;
+      border: 1px solid rgba(201,168,76,0);
+      transition: border-color 0.4s;
+    }
+    .gallery-item:hover::after { border-color: rgba(201,168,76,0.4); }
+
+    /* ── ESPECIALIDADES ── */
+    #especialidades {
+      padding: 8rem 4rem;
+      background: var(--black);
+    }
+    .esp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .esp-card {
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      background: rgba(201,168,76,0.02);
+      transition: border-color 0.4s, background 0.4s, transform 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .esp-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+    .esp-card:hover::before { transform: scaleX(1); }
+    .esp-card:hover {
+      border-color: rgba(201,168,76,0.4);
+      background: rgba(201,168,76,0.05);
+      transform: translateY(-4px);
+    }
+    .esp-icon { font-size: 2.5rem; margin-bottom: 1.2rem; }
+    .esp-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .esp-desc {
+      font-size: 0.85rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── NOSOTROS ── */
+    #nosotros {
+      padding: 8rem 4rem;
+      background: var(--dark);
+    }
+    .nosotros-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .nosotros-inner p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+      line-height: 1.9;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .nosotros-inner p strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+    .nosotros-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--gold);
+      margin: 3rem 0;
+      padding: 2rem;
+      border-left: 2px solid var(--gold);
+      border-right: 2px solid var(--gold);
+      position: relative;
+    }
+
+    /* ── CONTACTO ── */
+    #contacto {
+      padding: 8rem 4rem;
+      background: var(--black);
+      text-align: center;
+    }
+    .contact-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-inner p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+    .contact-box {
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 3rem;
+      background: rgba(201,168,76,0.03);
+      margin-bottom: 2rem;
+    }
+    .contact-item {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text);
+      letter-spacing: 0.05em;
+    }
+    .contact-item:last-child { margin-bottom: 0; }
+    .contact-item span:first-child { color: var(--gold); font-size: 1.2rem; }
+    .contact-item a { color: var(--text); text-decoration: none; transition: color 0.3s; }
+    .contact-item a:hover { color: var(--gold); }
+    .whatsapp-btn {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      padding: 1.2rem 3rem;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-top: 2rem;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    }
+    .whatsapp-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37,211,102,0.35);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 4rem;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+    }
+    .footer-text {
+      font-size: 0.75rem;
+      color: rgba(201,168,76,0.4);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .nav-links a { font-size: 0.68rem; }
+      #galeria, #especialidades, #nosotros, #contacto { padding: 5rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Tortas Jeni</a>
+  <ul class="nav-links">
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#especialidades">Especialidades</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-ornament">✦</div>
+  <p class="hero-subtitle">Arte en cada creación</p>
+  <h1>Tortas Jeni</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-tagline">Endulzamos tus momentos más especiales</p>
+  <p class="hero-location">Sasaima · Cundinamarca · Colombia</p>
+  <div class="hero-cta">
+    <a href="#galeria" class="btn-gold">Ver Galería</a>
+    <a href="https://wa.me/573002880468" target="_blank" class="btn-outline">Pedir Ahora</a>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="section-header">
+    <p class="section-label">Nuestras Creaciones</p>
+    <h2 class="section-title">Galería</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="tortas.png" alt="Tortas Jeni - Colección" style="object-position: 20% 10%;"/>
+      <div class="gallery-overlay"><span>Temáticas</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="tortas.png" alt="Tortas Jeni - Bautizo" style="object-position: 70% 10%;"/>
+      <div class="gallery-overlay"><span>Bautizos</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="tortas.png" alt="Tortas Jeni - Flores" style="object-position: 20% 80%;"/>
+      <div class="gallery-overlay"><span>Flores & Rosas</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="tortas.png" alt="Tortas Jeni - Personalizadas" style="object-position: 50% 80%;"/>
+      <div class="gallery-overlay"><span>Personalizadas</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="tortas.png" alt="Tortas Jeni - Bodas" style="object-position: 80% 80%;"/>
+      <div class="gallery-overlay"><span>Bodas & Eventos</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section id="especialidades">
+  <div class="section-header">
+    <p class="section-label">Lo que ofrecemos</p>
+    <h2 class="section-title">Especialidades</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="esp-grid">
+    <div class="esp-card">
+      <div class="esp-icon">🎂</div>
+      <h3 class="esp-title">Cumpleaños</h3>
+      <p class="esp-desc">Tortas temáticas personalizadas para hacer de cada cumpleaños un momento único e inolvidable.</p>
+    </div>
+    <div class="esp-card">
+      <div class="esp-icon">💍</div>
+      <h3 class="esp-title">Bodas</h3>
+      <p class="esp-desc">Elegantes tortas de varios pisos para el día más especial de tu vida, diseñadas a tu medida.</p>
+    </div>
+    <div class="esp-card">
+      <div class="esp-icon">👼</div>
+      <h3 class="esp-title">Bautizos</h3>
+      <p class="esp-desc">Diseños delicados y tiernos para celebrar la llegada de los más pequeños del hogar.</p>
+    </div>
+    <div class="esp-card">
+      <div class="esp-icon">🎨</div>
+      <h3 class="esp-title">Personalizadas</h3>
+      <p class="esp-desc">Tu imaginación es el límite. Creamos la torta perfecta según tus gustos y necesidades.</p>
+    </div>
+    <div class="esp-card">
+      <div class="esp-icon">🌸</div>
+      <h3 class="esp-title">Flores & Rosas</h3>
+      <p class="esp-desc">Decoraciones florales artesanales elaboradas con fondant para una presentación exquisita.</p>
+    </div>
+    <div class="esp-card">
+      <div class="esp-icon">🎉</div>
+      <h3 class="esp-title">Eventos</h3>
+      <p class="esp-desc">Grados, quinces, aniversarios y toda celebración especial merece una torta extraordinaria.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="section-header">
+    <p class="section-label">Nuestra Historia</p>
+    <h2 class="section-title">Sobre Nosotros</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="nosotros-inner">
+    <p>En <strong>Tortas Jeni</strong> convertimos cada celebración en un recuerdo dulce e imborrable. Ubicados en el corazón de <strong>Sasaima, Cundinamarca</strong>, llevamos años endulzando los momentos más importantes de las familias colombianas.</p>
+    <div class="nosotros-quote">
+      "Cada torta es una obra de arte hecha con amor y dedicación"
+    </div>
+    <p>Trabajamos con los mejores ingredientes y una atención al detalle incomparable. Desde tortas temáticas hasta elegantes creaciones para bodas, cada pedido es único y especial para nosotros.</p>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-header">
+    <p class="section-label">Hablemos</p>
+    <h2 class="section-title">Contáctanos</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-inner">
+    <p>¿Lista para crear el postre perfecto para tu celebración? Escríbenos y con gusto te asesoramos.</p>
+    <div class="contact-box">
+      <div class="contact-item">
+        <span>📍</span>
+        <span>Sasaima, Cundinamarca, Colombia</span>
+      </div>
+      <div class="contact-item">
+        <span>📱</span>
+        <a href="tel:3002880468">300 288 0468</a>
+      </div>
+      <div class="contact-item">
+        <span>📱</span>
+        <a href="tel:3017743600">301 774 3600</a>
+      </div>
+    </div>
+    <a href="https://wa.me/573002880468?text=Hola!%20Quisiera%20pedir%20una%20torta%20%F0%9F%8E%82" target="_blank" class="whatsapp-btn">
+      💬 Pedir por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Tortas Jeni</span>
+  <span class="footer-text">Sasaima · Cundinamarca · © 2025</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.esp-card, .gallery-item, .nosotros-inner p').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

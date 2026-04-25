@@ -39,11 +39,22 @@
       border-bottom: 1px solid rgba(201,168,76,0.2);
     }
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .nav-logo span {
       font-family: 'Cinzel', serif;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       letter-spacing: 0.2em;
       color: var(--gold);
-      text-decoration: none;
     }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
@@ -418,7 +429,10 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Tortas Jeni</a>
+  <a href="#" class="nav-logo">
+    <img src="logo.jpg" alt="Tortas Jeni Logo"/>
+    <span>Tortas Jeni</span>
+  </a>
   <ul class="nav-links">
     <li><a href="#galeria">Galería</a></li>
     <li><a href="#especialidades">Especialidades</a></li>
@@ -429,6 +443,7 @@
 
 <!-- HERO -->
 <section class="hero">
+  <img src="logo.jpg" alt="Logo Tortas Jeni" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid rgba(201,168,76,0.4);margin-bottom:1.5rem;animation:fadeDown 1s ease both;"/>
   <div class="hero-ornament">✦</div>
   <p class="hero-subtitle">Arte en cada creación</p>
   <h1>Tortas Jeni</h1>
@@ -450,23 +465,23 @@
   </div>
   <div class="gallery-grid">
     <div class="gallery-item">
-      <img src="tortas.png" alt="Tortas Jeni - Colección" style="object-position: 20% 10%;"/>
+      <img src="minecraft.jpg" alt="Torta Minecraft"/>
       <div class="gallery-overlay"><span>Temáticas</span></div>
     </div>
     <div class="gallery-item">
-      <img src="tortas.png" alt="Tortas Jeni - Bautizo" style="object-position: 70% 10%;"/>
+      <img src="bautizo.jpg" alt="Torta Bautizo"/>
       <div class="gallery-overlay"><span>Bautizos</span></div>
     </div>
     <div class="gallery-item">
-      <img src="tortas.png" alt="Tortas Jeni - Flores" style="object-position: 20% 80%;"/>
+      <img src="flores.jpg" alt="Torta Flores"/>
       <div class="gallery-overlay"><span>Flores & Rosas</span></div>
     </div>
     <div class="gallery-item">
-      <img src="tortas.png" alt="Tortas Jeni - Personalizadas" style="object-position: 50% 80%;"/>
+      <img src="anime.jpg" alt="Torta Personalizada"/>
       <div class="gallery-overlay"><span>Personalizadas</span></div>
     </div>
     <div class="gallery-item">
-      <img src="tortas.png" alt="Tortas Jeni - Bodas" style="object-position: 80% 80%;"/>
+      <img src="boda.jpg" alt="Torta Boda"/>
       <div class="gallery-overlay"><span>Bodas & Eventos</span></div>
     </div>
   </div>

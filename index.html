@@ -418,9 +418,18 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.2rem; }
-      .nav-links a { font-size: 0.68rem; }
-      #galeria, #especialidades, #nosotros, #contacto { padding: 5rem 1.5rem; }
+      .nav-links { gap: 0.8rem; }
+      .nav-links a { font-size: 0.6rem; letter-spacing: 0.08em; }
+      .nav-logo img { width: 30px; height: 30px; }
+      .nav-logo span { font-size: 0.85rem; }
+      .hero { padding: 5rem 1.5rem 3rem; min-height: auto; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+      .gallery-item { aspect-ratio: 1/1; }
+      .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      #galeria, #especialidades, #nosotros, #contacto { padding: 4rem 1.2rem; }
+      .esp-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+      .esp-card { padding: 1.2rem 0.8rem; }
+      .contact-box { padding: 1.5rem 1rem; }
       footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
     }
   </style>
@@ -451,7 +460,7 @@
   <p class="hero-tagline">Endulzamos tus momentos más especiales</p>
   <p class="hero-location">Sasaima · Cundinamarca · Colombia</p>
   <div class="hero-cta">
-    <a href="#galeria" class="btn-gold">Ver Galería</a>
+    <a href="galeria.html" class="btn-gold">Ver Galería Completa</a>
     <a href="https://wa.me/573002880468" target="_blank" class="btn-outline">Pedir Ahora</a>
   </div>
 </section>
